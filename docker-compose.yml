@@ -269,11 +269,68 @@ services:
           memory: 256M
     networks:
       - ecommerce-network
+  vault:
+    image: hashicorp/vault:latest
+    container_name: vault-server
+    restart: unless-stopped
+
+    # Required capability for memory locking (prevents secrets from being swapped to disk)
+    cap_add:
+      - IPC_LOCK
+
+    # Mount configuration, data, logs, and certificates
+    volumes:
+      - ./vault-config.hcl:/vault/config/vault.hcl:ro
+      - vault-data:/vault/data
+      - vault-logs:/vault/logs
+      - ./certs:/vault/certs:ro
+
+    # Environment variables for Vault configuration
+    environment:
+      - VAULT_ADDR=https://127.0.0.1:8200
+      - VAULT_API_ADDR=https://vault:8200
+      - VAULT_SKIP_VERIFY=false
+
+    # Expose Vault API and cluster ports
+    ports:
+      - "8200:8200"
+      - "8201:8201"
+
+    # Start Vault server with the configuration file
+    command: server
+
+    # Health check to monitor Vault availability
+    healthcheck:
+      test: ["CMD", "vault", "status", "-address=https://127.0.0.1:8200"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    
+    # Resource limits
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 512M
+        reservations:
+          cpus: '0.25'
+          memory: 256M
+
+    # Network configuration
+    networks:
+      - ecommerce-network
+      - vault-network
+
 
 volumes:
   postgres_data:
   redis_data:
+  vault-data:
+  vault-logs:
 
 networks:
   ecommerce-network:
+    driver: bridge
+  vault-network:
     driver: bridge

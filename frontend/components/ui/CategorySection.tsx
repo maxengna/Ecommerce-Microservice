@@ -12,7 +12,7 @@ const mockCategories: Category[] = [
   { id: 6, name: 'Toys', description: 'Toys and games for all ages', parent_id: null, is_active: true, created_at: '2024-01-01' },
 ]
 
-const categoryIcons = {
+const categoryIcons: Record<string, string> = {
   'Electronics': '📱',
   'Clothing': '👕',
   'Home & Garden': '🏠',
@@ -43,7 +43,7 @@ export function CategorySection() {
             >
               <div className="bg-gray-50 rounded-lg p-6 text-center hover:bg-primary-50 hover:shadow-lg transition-all duration-200 border border-gray-200 hover:border-primary-200">
                 <div className="text-4xl mb-3 group-hover:scale-110 transition-transform duration-200">
-                  {categoryIcons[category.name] || '📦'}
+                  {categoryIcons[category.name as keyof typeof categoryIcons] || '📦'}
                 </div>
                 <h3 className="font-semibold text-gray-900 group-hover:text-primary-600 transition-colors">
                   {category.name}

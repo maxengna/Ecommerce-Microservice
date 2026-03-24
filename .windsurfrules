@@ -1,0 +1,78 @@
+# E-commerce Frontend Layout Guidelines
+
+## 🧱 1. โครงสร้างหลัก (ต้องมี)
+- Header / Navbar - ต้องมี logo, search, cart, account
+- Hero Banner - โปร/CTA ดึงดูดสายตา
+- Categories - grid + icon, 4-8 หมวดหลัก
+- Product Listing - card layout สวยงาม
+- Promotion / Banner - แถวโปรโมชั่น
+- Footer - links, contact, social
+
+## 🧭 2. Header (สำคัญสุด)
+### Desktop:
+- Logo (ซ้าย)
+- Search bar (เด่น กลางจอ)
+- Menu / Categories (กลาง)
+- Cart / Account (ขวา)
+
+### Mobile:
+- Hamburger menu
+- Search เป็น icon/expand
+- Cart icon โดดเด่น
+
+## 🎯 3. Hero Section
+- ข้อความสั้น ชัดเจน
+- ปุ่ม CTA ("Shop Now")
+- ภาพ/banner ดึงดูด
+- Responsive ทุกขนาด
+
+## 🗂️ 4. Categories
+- Grid layout + icon/รูป
+- คลิกง่าย เห็นชัด
+- 4-8 หมวดหลัก
+- Hover effects
+
+## 🛍️ 5. Product Card (หัวใจหลัก)
+### ต้องมี:
+- รูปสินค้า
+- ชื่อสินค้า
+- ราคา
+- ปุ่ม (Add to cart / View)
+
+### เสริม:
+- Badge (sale / new)
+- Rating ⭐
+- Quick view
+
+## 📐 6. Product Grid
+- Desktop: 3-4 columns
+- Tablet: 2-3 columns  
+- Mobile: 1-2 columns
+- Consistent spacing
+
+## 🔍 7. Search + Filter
+- Search ใช้ง่าย
+- Filter (price, category, rating)
+- Sort (price / popular)
+- Real-time search
+
+## 📱 8. Responsive (สำคัญมาก)
+- Mobile-first approach
+- ปุ่มใหญ่ กดง่าย
+- Spacing 16-24px
+- ไม่ต้อง zoom
+- Touch-friendly
+
+## 🎨 9. UI/UX Best Practices
+- Card layout design
+- Spacing 16-24px
+- สี highlight สำหรับ CTA
+- Typography ชัดเจน (H1/H2/body)
+- Loading states
+- Error handling
+
+## 🚀 10. Performance
+- Lazy loading images
+- Optimized bundle size
+- Fast loading times
+- Smooth animations
